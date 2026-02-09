@@ -1,0 +1,22 @@
+# mp3 descargados)
+*.mp3
+
+# Archivos temporales de yt-dlp / ffmpeg
+*.part
+*.webm
+*.m4a
+*.opus
+
+# Cache y basura de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
