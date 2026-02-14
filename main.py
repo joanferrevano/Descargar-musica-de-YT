@@ -1,7 +1,11 @@
 import os
 import yt_dlp
 
-CARPETA_MUSICA = "musica"
+import os
+
+CARPETA_MUSICA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "musica")
+os.makedirs(CARPETA_MUSICA, exist_ok=True)
+
 
 def preparar_carpeta():
     os.makedirs(CARPETA_MUSICA, exist_ok=True)
@@ -35,13 +39,27 @@ def descargar_audio(entrada):
         print("👉 Revisa el enlace o el texto introducido")
 
 if __name__ == "__main__":
-    preparar_carpeta()
+    try:
+        preparar_carpeta()
+        print("🎵 Descargador de música (YouTube)")
 
-    print("🎵 Descargador de música (YouTube)")
-    print("Pega un enlace o escribe el título")
-    entrada = input("> ").strip()
+        while True:
+            print("\nPega un enlace, escribe un título o 'salir' para terminar:")
+            entrada = input("> ").strip()
 
-    if entrada:
-        descargar_audio(entrada)
-    else:
-        print("❌ No se ha introducido nada")
+            if entrada.lower() == "salir":
+                print("👋 Cerrando programa...")
+                break
+
+            if entrada:
+                descargar_audio(entrada)
+            else:
+                print("❌ No se ha introducido nada")
+
+    except Exception as e:
+        print("❌ Ha ocurrido un error:")
+        print(e)
+
+    input("\nPulsa ENTER para salir...")
+
+
