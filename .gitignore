@@ -1,4 +1,10 @@
-# mp3 descargados)
+# Cookies de sesión (¡nunca subir!)
+cookies.txt
+cookies*.txt
+*.cookies
+
+# Música descargada
+musica/
 *.mp3
 
 # Archivos temporales de yt-dlp / ffmpeg
